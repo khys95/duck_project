@@ -1,0 +1,8 @@
+duck_project:
+  outputs:
+    dev:
+      type: duckdb
+      path: ./analytics.duckdb
+      threads: 4
+
+  target: dev
