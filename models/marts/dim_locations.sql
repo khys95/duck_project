@@ -1,2 +1,7 @@
-SELECT index AS location_pk, category, shipment_status, amount, city, state, postcode, country
+SELECT
+    index AS location_pk,
+    city,
+    state,
+    postcode,
+    country
 FROM {{ ref('stg_orders')}}

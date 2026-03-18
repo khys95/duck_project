@@ -1,2 +1,8 @@
-SELECT index AS product_pk, order_id, style, sku, category, size, asin, quantity, amount,
+SELECT
+    index AS product_pk,
+    style,
+    sku,
+    category,
+    size,
+    asin,
 FROM {{ ref('stg_orders')}}

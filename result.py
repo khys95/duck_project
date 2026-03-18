@@ -56,7 +56,7 @@ print(popular)
 print("----- Order popularity by month")
 monthtrend = con.execute("SELECT month_name, category, count(*) AS popularity "
                         "FROM fct_orders fo "
-                        "LEFT JOIN dim_dates ds ON fo.date_fk = ds.date_pk "
+                        "JOIN dim_dates ds ON fo.date_fk = ds.date_pk "
                         "LEFT JOIN dim_locations dl ON fo.location_fk = dl.location_pk "
                         "LEFT JOIN dim_products dp ON fo.product_fk = dp.product_pk "
                         "GROUP BY month_name, category "

@@ -1,15 +1,11 @@
--- SELECT order_id, customer_id, amount FROM {{ ref('stg_orders') }}
--- WHERE status = 'completed'
-
--- SELECT date, ship_city, ship_state, category
--- FROM {{ ref('stg_orders') }}
--- WHERE ship_city = 'mumbai'
--- LIMIT 10
-
--- SELECT ship_city, COUNT(*) AS count_city
--- FROM {{ ref('stg_orders') }}
--- GROUP BY ship_city
--- ORDER BY COUNT(*) DESC
-
-SELECT *
+SELECT
+    order_id,
+    quantity,
+    amount,
+    date AS date_fk,
+    index AS location_fk,
+    index AS product_fk,
+    index AS promotion_fk,
+    index AS shipping_fk,
+    quantity*amount AS order_total
 FROM {{ ref('stg_orders')}}
