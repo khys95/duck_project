@@ -1,12 +1,54 @@
 version: 1.0.0
 
 models:
+  - name: fct_orders
+    columns:
+      - name: date_fk
+        test:
+          - not_null
+          - relationships:
+              to: ref('dim_dates')
+              field: date_pk
+      - name: location_fk
+        test:
+          - not_null
+          - relationships:
+              to: ref('dim_locations')
+              field: location_pk
+      - name: product_fk
+        test:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_pk
+      - name: shipping_fk
+        test:
+          - not_null
+          - relationship:
+              to: ref('dim_shippings')
+              field: shippping_pk
+      - name: promotion_fk
+        test:
+          - not_null
+          - relationship:
+              to: ref('dim_promotions')
+              filed: promotion_pk
   - name: dim_locations
     columns:
-      - name: category
+      - name: location_pk
+        tests:
+          - unique
+          - not_null
+      - name: city
         tests:
           - not_null
-      - name: shipment_status
+      - name: state
+        tests:
+          - not_null
+      - name: postcode
+        tests:
+          - not_null
+      - name: country
         tests:
           - not_null
   - name: dim_products
@@ -15,9 +57,10 @@ models:
         tests:
           - unique
           - not_null
-      - name: order_id
+      - name: style
         tests:
           - not_null
       - name: asin
         tests:
           - not_null
+          - unique
