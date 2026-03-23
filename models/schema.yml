@@ -33,6 +33,9 @@ models:
           - relationship:
               to: ref('dim_promotions')
               filed: promotion_pk
+      - name: order_id
+        test:
+          - unique
   - name: dim_dates
     columns:
       - name: year
