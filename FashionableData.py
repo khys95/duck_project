@@ -2,7 +2,7 @@ import duckdb
 import pandas as pd
 
 #Connect to database, duckDB
-con = duckdb.connect("./analytics.duckdb")
+con = duckdb.connect("analytics.duckdb")
 
 con.execute("CREATE SCHEMA IF NOT EXISTS raw")
 

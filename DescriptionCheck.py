@@ -2,7 +2,7 @@
 
 import duckdb
 
-con = duckdb.connect("./analytics.duckdb")
+con = duckdb.connect("analytics.duckdb")
 
 print("----- Products dim ")
 print(con.execute("SELECT * FROM dim_products").fetchdf())

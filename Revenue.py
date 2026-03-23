@@ -4,7 +4,7 @@ import duckdb
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 
-con = duckdb.connect("./analytics.duckdb")
+con = duckdb.connect("analytics.duckdb")
 
 #Calculating revenue by subtracting all cancelled orders!
 #(NOT all cancelled orders have a quantity equaling to zero!)

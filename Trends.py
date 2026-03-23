@@ -4,7 +4,7 @@ import duckdb
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 
-con = duckdb.connect("./analytics.duckdb")
+con = duckdb.connect("analytics.duckdb")
 
 #Popular styles and categories in the city of Mumbai.
 print("----- Popular styles and categories in the city of Mumbai")
