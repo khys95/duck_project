@@ -33,22 +33,21 @@ models:
           - relationship:
               to: ref('dim_promotions')
               filed: promotion_pk
-  - name: dim_locations
+  - name: dim_dates
     columns:
-      - name: location_pk
-        tests:
-          - unique
-          - not_null
-      - name: city
+      - name: year
         tests:
           - not_null
-      - name: state
+      - name: month_number
         tests:
           - not_null
-      - name: postcode
+      - name: day_number
         tests:
           - not_null
-      - name: country
+      - name: month_name
+        tests:
+          - not_null
+      - name: day_name
         tests:
           - not_null
   - name: dim_products
@@ -63,4 +62,22 @@ models:
       - name: asin
         tests:
           - not_null
-          - unique
+  - name: dim_shippings
+    columns:
+      - name: fulfillment
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Merchant','Fashionable']
+      - name: shipping_rate
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Expedited','Standard']
+  - name: dim_promotions
+    columns:
+      - name: sales_channel
+        tests:
+          - accepted_values:
+              arguments:
+                values: [ 'Fashionable.in', 'Non-Fashionable' ]
